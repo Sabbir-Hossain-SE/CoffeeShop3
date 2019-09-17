@@ -24,6 +24,14 @@ namespace assignment2
     public partial class CoffeeShop : Form
     {
         Invoice[] cusInvoice = new Invoice[100];
+        string[] name_arr = new string[100];
+        string[] contact_arr = new string[100];
+        string[] address_arr = new string[100];
+        string[] orderItem_arr = new string[100];
+        int[] quantity_arr = new int[100];
+        int[] totalPrice_arr = new int[100];
+        int[] unitPrice_arr = new int[100];
+
         int index=0;
         
         public CoffeeShop()
@@ -117,23 +125,27 @@ namespace assignment2
                 {
                     price = blackP * quantity;
                     cusInvoice[index].unitPrice = blackP;
+                    unitPrice_arr[index] = blackP;
                 }
                 else if (order.Equals("Cold"))
                 {
                     price = coldP * quantity;
                     cusInvoice[index].unitPrice = coldP;
+                    unitPrice_arr[index] = coldP;
 
                 }
                 else if (order.Equals("Hot"))
                 {
                     price = hotP * quantity;
                     cusInvoice[index].unitPrice = hotP;
+                    unitPrice_arr[index] = hotP;
 
                 }
                 else
                 {
                     price = regularP * quantity;
                     cusInvoice[index].unitPrice = regularP;
+                    unitPrice_arr[index] = regularP;
                 }
                 cusInvoice[index].name = name;
                 cusInvoice[index].contact = contact;
@@ -142,9 +154,16 @@ namespace assignment2
                 cusInvoice[index].quantity = quantity;
                 cusInvoice[index].totalPrice = price;
 
-                invoiceRichBox.Text += "\n\n\n\n\n  Name\t\t: " + cusInvoice[index].name + "\n  Contact Number  : " + cusInvoice[index].contact + "\n  Address\t\t: " + cusInvoice[index].address + "\n  Order Item\t   :\t" + cusInvoice[index].orderItem + "\n  Quantity\t\t:\t" + cusInvoice[index].quantity + "\n  Total Price  (" + cusInvoice[index].quantity + "*" + cusInvoice[index].unitPrice + "):\t\t" + cusInvoice[index].totalPrice;
+                name_arr[index] = name;
+                contact_arr[index] = contact;
+                address_arr[index] = address;
+                orderItem_arr[index] = order;
+                quantity_arr[index] = quantity;
+                totalPrice_arr[index] = price;
 
-                
+                //invoiceRichBox.Text += "\n\n\n\n\n  Name\t\t: " + cusInvoice[index].name + "\n  Contact Number  : " + cusInvoice[index].contact + "\n  Address\t\t: " + cusInvoice[index].address + "\n  Order Item\t   :\t" + cusInvoice[index].orderItem + "\n  Quantity\t\t:\t" + cusInvoice[index].quantity + "\n  Total Price  (" + cusInvoice[index].quantity + "*" + cusInvoice[index].unitPrice + "):\t\t" + cusInvoice[index].totalPrice;
+                invoiceRichBox.Text += "\n\n\n\n\n  Name : " + name_arr[index] + "\n  Contact Number : " + contact_arr[index] + "\n  Address : " + address_arr[index] + "\n  Order Item : " + orderItem_arr[index] + "\n  Quantity : " + quantity_arr[index] + "\n  Total Price  (" + quantity_arr[index] + "*" + unitPrice_arr[index] + ") : " + totalPrice_arr[index];
+
                 index++;
                 cusNameTextBox.Text = contactTextBox.Text = addressTextBox.Text = orderComboBox.Text = quantityTextBox.Text = "";
             }
