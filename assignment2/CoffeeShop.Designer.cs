@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.showButton = new System.Windows.Forms.Button();
             this.alertQuantity = new System.Windows.Forms.Label();
             this.alertOrder = new System.Windows.Forms.Label();
             this.alertAddress = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.showButton);
             this.groupBox.Controls.Add(this.alertQuantity);
             this.groupBox.Controls.Add(this.alertOrder);
             this.groupBox.Controls.Add(this.alertAddress);
@@ -74,6 +76,16 @@
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Cutomer Information";
+            // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(109, 350);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(126, 23);
+            this.showButton.TabIndex = 16;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
             // alertQuantity
             // 
@@ -98,10 +110,11 @@
             // 
             this.alertAddress.AutoSize = true;
             this.alertAddress.ForeColor = System.Drawing.Color.OrangeRed;
-            this.alertAddress.Location = new System.Drawing.Point(204, 176);
+            this.alertAddress.Location = new System.Drawing.Point(204, 192);
             this.alertAddress.Name = "alertAddress";
-            this.alertAddress.Size = new System.Drawing.Size(0, 13);
+            this.alertAddress.Size = new System.Drawing.Size(41, 13);
             this.alertAddress.TabIndex = 13;
+            
             // 
             // alertContact
             // 
@@ -123,13 +136,13 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(60, 350);
+            this.saveButton.Location = new System.Drawing.Point(241, 350);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(309, 23);
+            this.saveButton.Size = new System.Drawing.Size(128, 23);
             this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Checkout";
+            this.saveButton.Text = "Add";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.button1_Click);
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // orderComboBox
             // 
@@ -153,17 +166,18 @@
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(204, 149);
+            this.addressTextBox.Location = new System.Drawing.Point(204, 169);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(165, 20);
             this.addressTextBox.TabIndex = 7;
             // 
             // contactTextBox
             // 
-            this.contactTextBox.Location = new System.Drawing.Point(204, 98);
+            this.contactTextBox.Location = new System.Drawing.Point(204, 102);
             this.contactTextBox.Name = "contactTextBox";
             this.contactTextBox.Size = new System.Drawing.Size(165, 20);
             this.contactTextBox.TabIndex = 6;
+            this.contactTextBox.TextChanged += new System.EventHandler(this.contactTextBox_TextChanged);
             // 
             // cusNameTextBox
             // 
@@ -193,7 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 152);
+            this.label3.Location = new System.Drawing.Point(57, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 2;
@@ -202,7 +216,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 101);
+            this.label2.Location = new System.Drawing.Point(57, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -275,6 +289,7 @@
         private System.Windows.Forms.Label alertAddress;
         private System.Windows.Forms.Label alertContact;
         private System.Windows.Forms.Label alertName;
+        private System.Windows.Forms.Button showButton;
     }
 }
 
